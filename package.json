@@ -2,14 +2,24 @@
   "name": "tot",
   "version": "1.0.0",
   "description": "Geekbench Problem",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest",
-    "test:watch": "./node_modules/.bin/jest --watchAll"
+    "start": "./node_modules/.bin/nodemon",
+    "jest": "./node_modules/.bin/jest",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "test:coveragereport": "jest --coverage && open coverage/lcov-report/index.html"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.7"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   }
 }
