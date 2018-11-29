@@ -14,7 +14,7 @@
     "lint:fix": "./node_modules/.bin/eslint src --fix"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "eslint-config-node": "^4.0.0",
     "jest": "^23.6.0",
