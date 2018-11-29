@@ -1,0 +1,15 @@
+{
+  "name": "tot",
+  "version": "1.0.0",
+  "description": "Geekbench Problem",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
