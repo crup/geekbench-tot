@@ -2,23 +2,25 @@ const winner = require('./winner');
 const kingdoms = require('./kingdoms');
 
 function ruler(messages, king) {
-  let ruler = 'None'
-  let allies = [];
+  const response = {
+    ruler: 'None',
+    allies: [],
+  }
 
-  if(messages.length >= 3 && messages !== null && messages !== undefined) {
-    const kingdoms_won = messages.filter(({ to, message }) => {
+  if((messages instanceof Array)) {
+    const allies = messages.filter(({ to, message }) => {
       return winner(message, kingdoms[to]);
     });
 
-    if(kingdoms_won.length >= 3) {
-      allies = kingdoms_won.map(m => m.to);
-      ruler = king;
-    }
+    if(allies.length >= 3) {
+      return {
+        ruler: king,
+        allies: allies.map(a => a.to),
+      };
+    }  
   }
 
-  return {
-  	ruler,
-  	allies,
-  };
+  return response;
 }
+
 module.exports = ruler;

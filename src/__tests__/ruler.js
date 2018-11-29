@@ -37,3 +37,27 @@ test('Ruler has 2 allies', () => {
   	allies: []
   });
 });
+
+test('sent null messages', () => {
+  const messages = null;
+  expect(ruler(messages, 'King Shan')).toEqual({
+    ruler: 'None',
+    allies: []
+  });
+});
+
+test('sent undefined messages', () => {
+  const messages = null;
+  expect(ruler(messages, 'King Shan')).toEqual({
+    ruler: 'None',
+    allies: []
+  });
+});
+
+test('sent number instead of messages', () => {
+  const messages = 1;
+  expect(ruler(messages, 'King Shan')).toEqual({
+    ruler: 'None',
+    allies: []
+  });
+});
