@@ -8,9 +8,7 @@ function ruler(messages, king) {
   }
 
   if((messages instanceof Array)) {
-    const allies = messages.filter(({ to, message }) => {
-      return winner(message, kingdoms[to]);
-    });
+    const allies = messages.filter(({ to, message }) => winner(message, kingdoms[to]));
 
     if(allies.length >= 3) {
       return {

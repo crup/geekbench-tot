@@ -1,19 +1,22 @@
 const ruler = require('../ruler');
-const app = require('../index'); 
-const { rulerName, messages } = require('../inputs'); 
+const app = require('../index');
+const {
+  rulerName,
+  messages
+} = require('../inputs');
 
 test("Displays correct allies and ruler", () => {
-  let outputData = [];
-  let storeLog = inputs => (outputData.push(inputs));
-  console["log"] = jest.fn(storeLog);
-  
+  const outputData = [];
+  const storeLog = inputs => (outputData.push(inputs));
+  console.log = jest.fn(storeLog);
+
   const ruler_before = ruler();
   const ruler_after = ruler(messages, rulerName);
-  
+
   app(ruler_before, ruler_after, rulerName, messages);
 
   expect(outputData).toEqual([
-  	'Who is the ruler of Southeros?',
+    'Who is the ruler of Southeros?',
     'None',
     'Allies of None?',
     'None',

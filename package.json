@@ -9,11 +9,14 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "test:coveragereport": "jest --coverage && open coverage/lcov-report/index.html"
+    "test:coveragereport": "jest --coverage && open coverage/lcov-report/index.html",
+    "lint": "./node_modules/.bin/eslint src",
+    "lint:fix": "./node_modules/.bin/eslint src --fix"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint-config-node": "^4.0.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.7"
   },

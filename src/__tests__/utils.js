@@ -1,4 +1,8 @@
-const {concat, alliesMessage, printRulerInfo} = require('../utils');
+const {
+  concat,
+  alliesMessage,
+  printRulerInfo
+} = require('../utils');
 const ruler = require('../ruler');
 
 test('Concatinating array with comma', () => {
@@ -30,33 +34,38 @@ test('Ruler has name', () => {
 });
 
 test("Print ruler info without data", () => {
-  let outputData = [];
-  let storeLog = inputs => (outputData.push(inputs));
-  console["log"] = jest.fn(storeLog);
+  const outputData = [];
+  const storeLog = inputs => (outputData.push(inputs));
+  console.log = jest.fn(storeLog);
   printRulerInfo(ruler());
   expect(outputData).toEqual([
-  	'Who is the ruler of Southeros?',
-  	'None',
-  	'Allies of None?',
-  	'None'
+    'Who is the ruler of Southeros?',
+    'None',
+    'Allies of None?',
+    'None'
   ]);
 });
 
 test("Print ruler info with data", () => {
-  let outputData = [];
-  let storeLog = inputs => (outputData.push(inputs));
-  console["log"] = jest.fn(storeLog);
-  const messages = [
-	{to: 'Air', message: 'oaaawaala'},
-	{to: 'Land', message: 'a1d22n333a4444p'},
-	{to: 'Ice', message: 'zmzmzmzaztzozh'}
-  ];
+  const outputData = [];
+  const storeLog = inputs => (outputData.push(inputs));
+  console.log = jest.fn(storeLog);
+  const messages = [{
+    to: 'Air',
+    message: 'oaaawaala'
+  }, {
+    to: 'Land',
+    message: 'a1d22n333a4444p'
+  }, {
+    to: 'Ice',
+    message: 'zmzmzmzaztzozh'
+  }];
   printRulerInfo(ruler(messages, "King Shan"));
 
   expect(outputData).toEqual([
-  	'Who is the ruler of Southeros?',
-  	'King Shan',
-  	'Allies of King Shan?',
-  	'Air, Land, Ice'
+    'Who is the ruler of Southeros?',
+    'King Shan',
+    'Allies of King Shan?',
+    'Air, Land, Ice'
   ]);
 });
